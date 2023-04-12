@@ -1,0 +1,54 @@
+﻿@model List<AccesaQuests.Web.Models.Domain.Post>
+@{
+}
+<div class="bg-secondary bg-opacity-10 py-2">
+    <div class="container">
+        <h1>Add New Post</h1>
+    </div>
+</div>
+
+<div class="container py-5">
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>PostHeading</td>
+                    <td>Tags</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var post in Model)
+                {
+                    <tr>
+                        <td>@post.Id</td>
+                        <td>@post.PostHeading</td>
+                        <td>
+                            <div class="d-flex">
+                                @foreach (var tag in post.Tags)
+                                {
+                                    <span class="badge bg-secondary me-1">@tag.Name</span>
+                                }
+                            </div>
+                        </td>
+                        <td>
+                            <a asp-area=""
+                        asp-controller="AdminPosts" 
+                        asp-action="Edit"
+                        asp-route-id="@post.Id">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <p>No Posts Found</p>
+    }
+</div>
