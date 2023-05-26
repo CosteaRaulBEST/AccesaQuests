@@ -1,79 +1,89 @@
 ﻿@model AccesaQuests.Web.Models.ViewsName.HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
-    }
+}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="~/Home/index.cshtml.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #141e30, #243b55);
+            color: white;
+        }
+    </style>
 </head>
-<div class="container col-xxl col-8 px-4 py-5">
-    <div class="row align-items-center g-5 py-5">
-        <div class="col 12 col-lg-6">
-            <h1 class="display 5 fw-bold lh-1 mb-3">
-                BlogPost 
-            </h1>
-            <p class="laed">
-                Welcome to my captivating blog post, where I share the story behind my adventure of creating a remarkable blog using the power of ASP.NET. Join me as I take you on a personal journey, revealing the inspiration and passion that drove me to embrace ASP.NET for this exciting project.
-            </p>
-        </div>
-        <div class="col-12 col-lg-6">
-            <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                  alt="AccesaQuests - Posts"
-                  class="d-block mx-lg-auto img-fluid " width="500"/>
+<body>
+    <div class="container col-xxl col-8 px-4 py-5">
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-12 col-lg-6">
+                <h1 class="display-4 fw-bold lh-1 mb-3">
+                    BlogPost
+                </h1>
+                <p class="lead">
+                    Welcome to my captivating blog post, where I share the story behind my adventure of creating a remarkable blog using the power of ASP.NET. Join me as I take you on a personal journey, revealing the inspiration and passion that drove me to embrace ASP.NET for this exciting project.
+                </p>
+            </div>
+            <div class="col-12 col-lg-6">
+                <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                     alt="AccesaQuests - Posts"
+                     class="d-block mx-lg-auto img-fluid" width="500" />
+            </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-6 d-flex">
-            @if(Model != null && Model.Tags.Any())
-            {
-                @foreach (var tag in Model.Tags)
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6 d-flex">
+                @if (Model != null && Model.Tags.Any())
                 {
-                    <span class="badge bg-dark me-1">@tag.Name</span>
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <span class="badge bg-dark text-white me-1">@tag.Name</span>
+                    }
                 }
-            }
-         </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-6">
-            @if (Model != null && Model.Posts.Any())
-            {
-                foreach (var Post in Model.Posts)
-                {
-                    <div class="mb-5 bg-light box-shadow p-5">
-                        <img src="@Post.FeaturedImageUrl" alt="@Post.PostHeading"
-                             class="mb-2 d-block img-fluid" />
-                             <h2 class="mb-2">
-                                 @Post.PostHeading
-                             </h2>
-                             <p class="mb-4">
-                                 QuestGiver:@Post.Author
-                                 <br />
-                                 Published Date:@Post.PublishedDate.ToShortDateString()
-                             </p>
-                             <p class="mb-4">
-                               @foreach (var tag in Post.Tags)
-                               {
-                                <span class="badge bg-secondary me-1">@tag.Name</span>
-                               }
-
-                             </p>
-                             <p class="mb-4">@Post.ShortDescription</p>
-
-
-                             <a class="btn btn-dark"
-                                asp-area=""
-                                asp-controller="Posts"
-                                asp-action="Index"
-                                asp-route-urlHandle="@Post.UrlHandle"
-                             >Read More 
-                             </a>
-                    </div>
-                }
-            }
+            </div>
         </div>
     </div>
-</div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                @if (Model != null && Model.Posts.Any())
+                {
+                    foreach (var post in Model.Posts)
+                    {
+                        <div class="mb-5 box-shadow p-5 border">
+                            <img src="@post.FeaturedImageUrl" alt="@post.PostHeading"
+                                 class="mb-2 d-block img-fluid" />
+                            <h2 class="mb-2">
+                                @post.PostHeading
+                            </h2>
+                            <p class="mb-4">
+                                QuestGiver: @post.Author
+                                <br />
+                                Published Date: @post.PublishedDate.ToShortDateString()
+                            </p>
+                            <p class="mb-4">
+                                @foreach (var tag in post.Tags)
+                                {
+                                    <span class="badge bg-secondary text-white me-1">@tag.Name</span>
+                                }
+                            </p>
+                            <p class="mb-4">@post.ShortDescription</p>
+                            <a class="btn btn-dark" asp-area="" asp-controller="Posts" asp-action="Index" asp-route-urlHandle="@post.UrlHandle">
+                                Read More
+                            </a>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
