@@ -1,6 +1,9 @@
 ﻿@model AccesaQuests.Web.Models.ViewsName.RegisterViewModel
+
 @{
+    ViewData["Title"] = "Registration Page";
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,6 +75,12 @@
             <div class="col-12 col-md-8 col-lg-6">
                 <div class="register-container">
                     <h2 class="text-white">Register</h2>
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
                     <form method="post">
                         <div class="form-group">
                             <label for="username" class="text-white">Username:</label>

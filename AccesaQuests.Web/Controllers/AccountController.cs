@@ -1,6 +1,7 @@
 ﻿using AccesaQuests.Web.Models.ViewsName;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
 
 namespace AccesaQuests.Web.Controllers
 {
@@ -14,34 +15,47 @@ namespace AccesaQuests.Web.Controllers
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
+
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
-            var identyUser = new IdentityUser
+            if (ModelState.IsValid)
             {
-                UserName = registerViewModel.UserName,
-                Email = registerViewModel.Email,
-            };
-
-            var identitResult = await userManager.CreateAsync(identyUser, registerViewModel.Password);
-
-            if (identitResult.Succeeded)
-            {
-                //asign the user the "user" role
-                var roleIdentity = await userManager.AddToRoleAsync(identyUser, "User");
-                if (roleIdentity.Succeeded)
+                var identyUser = new IdentityUser
                 {
-                    //Show succes notification
-                    return RedirectToAction("Register");
+                    UserName = registerViewModel.UserName,
+                    Email = registerViewModel.Email,
+                };
+
+                var identitResult = await userManager.CreateAsync(identyUser, registerViewModel.Password);
+
+                if (identitResult.Succeeded)
+                {
+                    // Assign the user the "user" role
+                    var roleIdentity = await userManager.AddToRoleAsync(identyUser, "User");
+                    if (roleIdentity.Succeeded)
+                    {
+                        // Show success notification
+                        TempData["SuccessMessage"] = "Registration successful! You can now log in.";
+                        return RedirectToAction("Register");
+                    }
+                }
+
+                // If there are any errors, add them to ModelState for display
+                foreach (var error in identitResult.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-            //SHOW ERROR NOTIFICATION
-            return View();
+
+            // If registration failed or model is invalid, return to the registration view
+            return View(registerViewModel);
         }
 
         [HttpGet]
@@ -51,18 +65,16 @@ namespace AccesaQuests.Web.Controllers
         }
 
         [HttpPost]
-
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-
-            var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.Username, loginViewModel.Password ,false ,false);
+            var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.Username, loginViewModel.Password, false, false);
 
             if (signInResult.Succeeded && signInResult != null)
             {
-                return RedirectToAction("Index" , "Home");
-
+                return RedirectToAction("Index", "Home");
             }
-            //Show error
+
+            // Show error
             return View();
         }
 
@@ -72,6 +84,7 @@ namespace AccesaQuests.Web.Controllers
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
         public IActionResult AccessDenied()
         {
             return View();
