@@ -27,6 +27,12 @@ namespace AccesaQuests.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (registerViewModel.Password != registerViewModel.ConfirmPassword)
+                {
+                    ModelState.AddModelError(string.Empty, "The password and confirm password do not match.");
+                    return View(registerViewModel);
+                }
+
                 var identityUser = new IdentityUser
                 {
                     UserName = registerViewModel.UserName,
