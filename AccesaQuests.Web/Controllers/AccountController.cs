@@ -27,19 +27,19 @@ namespace AccesaQuests.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var identyUser = new IdentityUser
+                var identityUser = new IdentityUser
                 {
                     UserName = registerViewModel.UserName,
                     Email = registerViewModel.Email,
                 };
 
-                var identitResult = await userManager.CreateAsync(identyUser, registerViewModel.Password);
+                var identityResult = await userManager.CreateAsync(identityUser, registerViewModel.Password);
 
-                if (identitResult.Succeeded)
+                if (identityResult.Succeeded)
                 {
                     // Assign the user the "user" role
-                    var roleIdentity = await userManager.AddToRoleAsync(identyUser, "User");
-                    if (roleIdentity.Succeeded)
+                    var roleResult = await userManager.AddToRoleAsync(identityUser, "User");
+                    if (roleResult.Succeeded)
                     {
                         // Show success notification
                         TempData["SuccessMessage"] = "Registration successful! You can now log in.";
@@ -48,7 +48,7 @@ namespace AccesaQuests.Web.Controllers
                 }
 
                 // If there are any errors, add them to ModelState for display
-                foreach (var error in identitResult.Errors)
+                foreach (var error in identityResult.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
@@ -69,13 +69,18 @@ namespace AccesaQuests.Web.Controllers
         {
             var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.Username, loginViewModel.Password, false, false);
 
-            if (signInResult.Succeeded && signInResult != null)
+            if (signInResult.Succeeded)
             {
                 return RedirectToAction("Index", "Home");
             }
+            else
+            {
+                // Add error message to TempData
+                TempData["ErrorMessage"] = "Invalid username or password.";
 
-            // Show error
-            return View();
+                // Return to the login view
+                return View(loginViewModel);
+            }
         }
 
         [HttpGet]
