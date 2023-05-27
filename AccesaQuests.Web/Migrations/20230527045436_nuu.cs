@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace AccesaQuests.Web.Migrations
+namespace BlogPost.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class nuu : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -45,6 +45,25 @@ namespace AccesaQuests.Web.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BlogPostLike",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BlogPostId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PostId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BlogPostLike", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BlogPostLike_Posts_PostId",
+                        column: x => x.PostId,
+                        principalTable: "Posts",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PostTag",
                 columns: table => new
                 {
@@ -69,6 +88,11 @@ namespace AccesaQuests.Web.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_BlogPostLike_PostId",
+                table: "BlogPostLike",
+                column: "PostId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PostTag_TagsId",
                 table: "PostTag",
                 column: "TagsId");
@@ -77,6 +101,9 @@ namespace AccesaQuests.Web.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "BlogPostLike");
+
             migrationBuilder.DropTable(
                 name: "PostTag");
 

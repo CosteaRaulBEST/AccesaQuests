@@ -2,6 +2,7 @@ using AccesaQuests.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using AccesaQuests.Web.Repositories;
 using Microsoft.EntityFrameworkCore;
+using BlogPost.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.AddScoped<ITagRepository,TagRepository>();
 builder.Services.AddScoped<IPostRepository,PostRepository>();
 builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
+builder.Services.AddScoped<IBlogPostLikeRepository, IBlogPostLikeRepository>();
 
 var app = builder.Build();
 

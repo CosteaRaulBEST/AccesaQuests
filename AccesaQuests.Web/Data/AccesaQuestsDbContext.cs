@@ -10,6 +10,7 @@ namespace AccesaQuests.Web.Data
         }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<BlogPostLike> BlogPostLike { get; set; }
 
     }
 }

@@ -25,6 +25,15 @@
                             @TempData["SuccessMessage"]
                         </div>
                     }
+                    @if (Model != null && !ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                {
+                                <p>@error.ErrorMessage</p>
+                                }                           
+                        </div>
+                    }
                     <form method="post">
                         <div class="form-group">
                             <label for="username" class="text-white">Username:</label>
@@ -46,6 +55,9 @@
                             <button type="submit" class="btn btn-primary">Register</button>
                         </div>
                     </form>
+                    <div class="text-center mt-4">
+                        <p class="text-white">Already have an account? <a href="/Account/Login">Login here</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -54,3 +66,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
+    

@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace AccesaQuests.Web.Migrations
+namespace BlogPost.Migrations
 {
     [DbContext(typeof(AccesaQuestsDbContext))]
-    [Migration("20230411171718_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20230527045436_nuu")]
+    partial class nuu
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,28 @@ namespace AccesaQuests.Web.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("AccesaQuests.Web.Models.Domain.BlogPostLike", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BlogPostId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("PostId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("BlogPostLike");
+                });
 
             modelBuilder.Entity("AccesaQuests.Web.Models.Domain.Post", b =>
                 {
@@ -104,6 +126,13 @@ namespace AccesaQuests.Web.Migrations
                     b.ToTable("PostTag");
                 });
 
+            modelBuilder.Entity("AccesaQuests.Web.Models.Domain.BlogPostLike", b =>
+                {
+                    b.HasOne("AccesaQuests.Web.Models.Domain.Post", null)
+                        .WithMany("Likes")
+                        .HasForeignKey("PostId");
+                });
+
             modelBuilder.Entity("PostTag", b =>
                 {
                     b.HasOne("AccesaQuests.Web.Models.Domain.Post", null)
@@ -117,6 +146,11 @@ namespace AccesaQuests.Web.Migrations
                         .HasForeignKey("TagsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("AccesaQuests.Web.Models.Domain.Post", b =>
+                {
+                    b.Navigation("Likes");
                 });
 #pragma warning restore 612, 618
         }
