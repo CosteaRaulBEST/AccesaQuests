@@ -1,0 +1,15 @@
+﻿body {
+    background: linear-gradient(to bottom, #141e30, #243b55);
+    color: white;
+}
+.container {
+    color: white; /* Set text color to white */
+}
+
+.table th {
+    color: white; /* Set table header text color to white */
+}
+
+.table td {
+    color: white; /* Set table cell text color to white */
+}

@@ -1,18 +1,14 @@
-﻿using AccesaQuests.Web.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using AccesaQuests.Web.Models.Domain;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace BlogPost.Repositories
+namespace AccesaQuests.Web.Repositories
 {
-    public class IBlogPostLikeRepository : IBlogPostLike
+    public interface IBlogPostLikeRepository
     {
-        private readonly AccesaQuestsDbContext accesaQuestsDbContext;
-        public IBlogPostLikeRepository(AccesaQuestsDbContext accesaQuestsDbContext)
-        {
-            this.accesaQuestsDbContext = accesaQuestsDbContext;
-        }
-        public async Task<int> GetTotalLikes(Guid blogPostId)
-        {
-            return await accesaQuestsDbContext.BlogPostLike.CountAsync(x => x.BlogPostId == blogPostId);
-        }
+        Task<BlogPostLike> AddLikeForBlog(BlogPostLike blogPostLike);
+        Task<IEnumerable<BlogPostLike>> GetLikesForBlog(Guid blogPostId);
+        Task<int> GetTotalLikes(Guid blogPostId);
     }
 }

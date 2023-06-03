@@ -1,7 +1,7 @@
 ﻿using AccesaQuests.Web.Repositories;
 using AccesaQuests.Web.Models.ViewsName;
-using BlogPost.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace AccesaQuests.Web.Controllers
 {
@@ -10,36 +10,37 @@ namespace AccesaQuests.Web.Controllers
         private readonly IPostRepository postRepository;
         private readonly IBlogPostLikeRepository blogPostLikeRepository;
 
-        public PostsController(IPostRepository postRepository,
-            IBlogPostLikeRepository blogPostLikeRepository)
+        public PostsController(IPostRepository postRepository, IBlogPostLikeRepository blogPostLikeRepository)
         {
             this.postRepository = postRepository;
             this.blogPostLikeRepository = blogPostLikeRepository;
         }
+
         [HttpGet]
         public async Task<IActionResult> Index(string urlHandle)
         {
-            var Post = await postRepository.GetByUrlHandleAsync(urlHandle);
+            var post = await postRepository.GetByUrlHandleAsync(urlHandle);
             var blogDetailsViewModel = new BlogDetailsViewModel();
-            if (Post != null) 
+
+            if (post != null)
             {
-                var totalLikes = await blogPostLikeRepository.GetTotalLikes(Post.Id);
+                var totalLikes = await blogPostLikeRepository.GetTotalLikes(post.Id);
                 blogDetailsViewModel = new BlogDetailsViewModel
                 {
-                    Id = Post.Id,
-                    Content = Post.Content,
-                    PostTitle = Post.PostTitle,
-                    Author = Post.Author,
-                    FeaturedImageUrl = Post.FeaturedImageUrl,
-                    PostHeading = Post.PostHeading,
-                    PublishedDate = Post.PublishedDate,
-                    ShortDescription = Post.ShortDescription,
-                    UrlHandle = Post.UrlHandle,
-                    Tags = Post.Tags,
+                    Id = post.Id,
+                    Content = post.Content,
+                    PostTitle = post.PostTitle,
+                    Author = post.Author,
+                    FeaturedImageUrl = post.FeaturedImageUrl,
+                    PostHeading = post.PostHeading,
+                    PublishedDate = post.PublishedDate,
+                    ShortDescription = post.ShortDescription,
+                    UrlHandle = post.UrlHandle,
+                    Tags = post.Tags,
                     TotalLikes = totalLikes
                 };
-                
             }
+
             return View(blogDetailsViewModel);
         }
     }

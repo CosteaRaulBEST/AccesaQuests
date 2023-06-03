@@ -1,4 +1,4 @@
-﻿namespace BlogPost.Repositories
+﻿namespace AccesaQuests.Web.Repositories
 {
     public interface IBlogPostLike
     {
