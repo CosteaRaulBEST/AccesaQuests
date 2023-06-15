@@ -22,11 +22,9 @@ namespace AccesaQuests.Web.Controllers
 
     public async Task<IActionResult> Index()
     {
-        // GET ALL POSTS
 
         var Posts = await postRepository.GetAllAsync();
 
-        // get all tags
 
          var tags = await tagRepository.GetAllAsync();
 

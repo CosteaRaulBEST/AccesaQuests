@@ -32,6 +32,7 @@ builder.Services.AddScoped<ITagRepository,TagRepository>();
 builder.Services.AddScoped<IPostRepository,PostRepository>();
 builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
 builder.Services.AddScoped<IBlogPostLikeRepository, BlogPostLikeRepository>();
+builder.Services.AddScoped<IBlogPostCommentRepository, BlogPostCommentRepository>();
 
 
 

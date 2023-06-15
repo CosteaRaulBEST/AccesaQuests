@@ -1,0 +1,44 @@
+﻿/* Custom CSS for Comments Section */
+
+.card {
+    background-color: #1e2a3b;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #101b26;
+    color: white;
+}
+
+.card-body {
+    background-color: #1e2a3b;
+    color: white;
+}
+
+.form-label {
+    color: white;
+}
+
+.btn-dark {
+    background-color: #243b55;
+    border-color: #243b55;
+}
+
+    .btn-dark:hover {
+        background-color: #182c43;
+        border-color: #182c43;
+    }
+
+input.form-control {
+    background-color: #101b26;
+    color: white;
+    border-color: #243b55;
+}
+
+    input.form-control:focus {
+        background-color: #101b26;
+        color: white;
+        border-color: #243b55;
+        box-shadow: none;
+    }

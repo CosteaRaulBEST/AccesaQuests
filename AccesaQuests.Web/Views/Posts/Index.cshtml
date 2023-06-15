@@ -9,6 +9,7 @@
 }
 <head>
     <link href="~/css/HomeIndex.css" rel="stylesheet" />
+    <link href="~/css/Comments.css" rel="stylesheet" />
 </head>
 <div class="container my-5">
     <div class="row justify-content-center">
@@ -49,6 +50,46 @@
                 <div class="mb-3 blog-details-content">
                     @Html.Raw(Model.Content)
                 </div>
+
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Comments</h5>
+
+                            <form method="post">
+                                <div class="mb-3">
+                                    <label class="form-label">Comment Description</label>
+                                    <input type="text" class="form-control" asp-for="CommentDescription" />
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-dark">Submit</button>
+                                    <input type="hidden" asp-for="Id" />
+                                    <input type="hidden" asp-for="UrlHandle" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-body">
+                            @if (Model.Comments != null && Model.Comments.Any())
+                            {
+                                @foreach (var comment in Model.Comments)
+                                {
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <div>
+                                                @comment.Description
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <span class="text-secondary">@comment.Username</span>
+                                                <span class="text-secondary">@comment.DateAdded.ToShortDateString()</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                }
             }
             else
             {
@@ -75,7 +116,6 @@
                 .then(result => totalLikeElement.innerHTML = result);
         }
 
-
         async function addLikeForBlog() {
             fetch('/api/BlogPostLike/Add', {
                 method: 'POST',
@@ -86,7 +126,6 @@
                 body: JSON.stringify({
                     blogPostId: '@Model.Id',
                     userId: '@userManager.GetUserId(User)'
-
                 })
             }).then(() => {
                 btnLikeElement.innerHTML = '<i class="bi bi-hand-thumbs-up-fill"></i>';
@@ -94,7 +133,6 @@
                 getTotalLikes();
             });
         }
-
 
         btnLikeElement.addEventListener('click', addLikeForBlog);
 

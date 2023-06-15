@@ -22,7 +22,6 @@ namespace AccesaQuests.Web.Controllers
         [Authorize]
         public async Task<IActionResult> Add()
         {
-            //get tags from repository
             var tags = await tagRepository.GetAllAsync();
             var model = new AddPostRequest
             {

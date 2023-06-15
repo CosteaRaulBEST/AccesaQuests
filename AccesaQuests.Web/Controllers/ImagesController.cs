@@ -17,7 +17,7 @@ namespace AccesaQuests.Web.Controllers
         }
         public async Task<IActionResult> UploadAsync(IFormFile file)
         {
-            //call a repository
+          
             var imageUrl = await imageRepository.UploadAsync(file);
             if(imageUrl == null)
             {

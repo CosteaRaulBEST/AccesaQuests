@@ -43,24 +43,21 @@ namespace AccesaQuests.Web.Controllers
 
                 if (identityResult.Succeeded)
                 {
-                    // Assign the user the "user" role
                     var roleResult = await userManager.AddToRoleAsync(identityUser, "User");
                     if (roleResult.Succeeded)
                     {
-                        // Show success notification
                         TempData["SuccessMessage"] = "Registration successful! You can now log in.";
                         return RedirectToAction("Register");
                     }
                 }
 
-                // If there are any errors, add them to ModelState for display
                 foreach (var error in identityResult.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
 
-            // If registration failed or model is invalid, return to the registration view
+            
             return View(registerViewModel);
         }
 
@@ -81,10 +78,8 @@ namespace AccesaQuests.Web.Controllers
             }
             else
             {
-                // Add error message to TempData
                 TempData["ErrorMessage"] = "Invalid username or password.";
 
-                // Return to the login view
                 return View(loginViewModel);
             }
         }
