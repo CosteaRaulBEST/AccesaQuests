@@ -1,0 +1,51 @@
+﻿body {
+    background: linear-gradient(to bottom, #141e30, #243b55);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.buy-me-a-coffee {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.bmc-button {
+    font-size: 12px;
+    padding: 6px 12px !important;
+}
+
+.navbar {
+    margin-bottom: 0 !important;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #ccc;
+    }
