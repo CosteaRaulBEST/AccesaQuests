@@ -1,8 +1,10 @@
 ﻿using AccesaQuests.Web.Models.Domain;
-using AccesaQuests.Web.Models.ViewsName;
+using AccesaQuests.Web.Models.ViewsName; 
 using AccesaQuests.Web.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace AccesaQuests.Web.Controllers
 {
@@ -16,7 +18,6 @@ namespace AccesaQuests.Web.Controllers
         {
             this.blogPostLikeRepository = blogPostLikeRepository;
         }
-
 
         [HttpPost]
         [Route("Add")]
@@ -33,7 +34,6 @@ namespace AccesaQuests.Web.Controllers
             return Ok();
         }
 
-
         [HttpGet]
         [Route("{blogPostId:Guid}/totalLikes")]
         public async Task<IActionResult> GetTotalLikesForBlog([FromRoute] Guid blogPostId)
@@ -44,4 +44,3 @@ namespace AccesaQuests.Web.Controllers
         }
     }
 }
-

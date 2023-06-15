@@ -1,14 +1,14 @@
-﻿using AccesaQuests.Web.Models.Domain;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿    using AccesaQuests.Web.Models.Domain;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
-namespace AccesaQuests.Web.Repositories
-{
-    public interface IBlogPostLikeRepository
+    namespace AccesaQuests.Web.Repositories
     {
-        Task<BlogPostLike> AddLikeForBlog(BlogPostLike blogPostLike);
-        Task<IEnumerable<BlogPostLike>> GetLikesForBlog(Guid blogPostId);
-        Task<int> GetTotalLikes(Guid blogPostId);
+        public interface IBlogPostLikeRepository
+        {
+            Task<BlogPostLike> AddLikeForBlog(BlogPostLike blogPostLike);
+            Task<IEnumerable<BlogPostLike>> GetLikesForBlog(Guid blogPostId);
+            Task<int> GetTotalLikes(Guid blogPostId);
+        }
     }
-}

@@ -31,6 +31,7 @@ namespace AccesaQuests.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string urlHandle)    
         {
+            var liked = false;
             var post = await postRepository.GetByUrlHandleAsync(urlHandle);
             var blogDetailsViewModel = new BlogDetailsViewModel();
 
@@ -38,7 +39,18 @@ namespace AccesaQuests.Web.Controllers
             {
                 var totalLikes = await blogPostLikeRepository.GetTotalLikes(post.Id);
 
+                if(signInManager.IsSignedIn(User))
+                {
+                   var likesforBlog =  await blogPostLikeRepository.GetLikesForBlog(post.Id);
 
+                    var userId = userManager.GetUserId(User); 
+
+                    if (userId != null)
+                    {
+                       var likeformUser = likesforBlog.FirstOrDefault( x=> x.UserId == Guid.Parse(userId));
+                        liked = likeformUser != null;
+                    }
+                }
                 var blogCommentsDomainModel = await blogPostCommentRepository.GetCommentsByBlogIdAsync(post.Id);
 
                 var blogCommentsForView = new List<BlogComment>();
@@ -64,6 +76,7 @@ namespace AccesaQuests.Web.Controllers
                     UrlHandle = post.UrlHandle,
                     Tags = post.Tags,
                     TotalLikes = totalLikes,
+                    Liked = liked,
                     Comments = blogCommentsForView
                     
                 };

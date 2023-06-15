@@ -28,12 +28,16 @@
                     <a id="btnLike" style="cursor: pointer;">
                         @if (Model.Liked)
                         {
-                            <i class="bi bi-hand-thumbs-up-fill"></i>
+                            
+                                <i class="bi bi-hand-thumbs-up-fill"></i>
+                            
                         }
                         else
                         {
-                            <i class="bi bi-hand-thumbs-up"></i>
-                        }
+                            
+                                <i class="bi bi-hand-thumbs-up"></i>
+                            
+                        }                       
                     </a>
                     <span id="totalLikes">@Model.TotalLikes</span> likes
                 </div>
