@@ -19,7 +19,7 @@ namespace AccesaQuests.Web.Controllers
             this.postRepository = postRepository;
         }
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Add()
         {
             var tags = await tagRepository.GetAllAsync();
@@ -66,7 +66,7 @@ namespace AccesaQuests.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> List()
         {
             //call the repository
