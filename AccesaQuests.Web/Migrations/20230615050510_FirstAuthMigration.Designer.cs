@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace AccesaQuests.Web.Migrations.AuthDb
+namespace AccesaQuests.Web.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20230412071925_AuthDb Migration")]
-    partial class AuthDbMigration
+    [Migration("20230615050510_FirstAuthMigration")]
+    partial class FirstAuthMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -169,17 +169,17 @@ namespace AccesaQuests.Web.Migrations.AuthDb
                         {
                             Id = "472ba632-6133-44a1-b158-6c10bd7d850d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3f8b2c0f-d321-4746-bac3-2e75b09c3f31",
+                            ConcurrencyStamp = "9df08927-dbc3-49c3-bc7c-c2dbce444561",
                             Email = "superadmin@accesa.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@ACCESA.COM",
                             NormalizedUserName = "SUPERADMINACCESA.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEM7WwddtxZh4XA+GUFbMq2755SQxNXzlOj5P6gwW5vqLPvraoXaj5+bSdNzK5uE8Rw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELO+GXoFq+YcM0L/M1A2fgAzobHidYA24x/9HzP31Mw9Yve4oXJjda/hlpeqtOjHJA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0bf56504-7b58-425a-9018-271977e23d87",
+                            SecurityStamp = "a97259fb-d836-46e9-aad0-b54465821459",
                             TwoFactorEnabled = false,
-                            UserName = "superadmin@accesa.com"
+                            UserName = "superadmin"
                         });
                 });
 

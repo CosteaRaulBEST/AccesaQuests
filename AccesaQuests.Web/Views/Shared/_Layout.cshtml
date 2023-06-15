@@ -29,58 +29,55 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Manage
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item"
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Manage
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item"
                                        asp-area=""
                                        asp-controller="AdminTags"
                                        asp-action="Add">
-                                        Add Tag
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item"
+                                            Add Tag
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item"
                                        asp-area=""
                                        asp-controller="AdminTags"
                                        asp-action="List">
-                                        Show All Tags
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item"
+                                            Show All Tags
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item"
                                        asp-area=""
                                        asp-controller="AdminPosts"
                                        asp-action="Add">
-                                        Add  Blog post
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item"
+                                            Add Blog Post
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item"
                                        asp-area=""
                                        asp-controller="AdminPosts"
                                        asp-action="List">
-                                        Show All Blog Posts
-                                    </a>
-                                </li>
-                            </ul>
-
-
-                        </li>
+                                            Show All Blog Posts
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
                     <div class="d-flex align-items-center">
                         @if (signInManager.IsSignedIn(User))
                         {
                             <div class="me-3 text-light">
-                                @User?.Identity?.Name
+                                @User.Identity.Name
                             </div>
-
                             <a class="btn me-3 bg-light text-dark"
                            asp-area=""
                            asp-controller="Account"
@@ -92,14 +89,11 @@
                            asp-area=""
                            asp-controller="Account"
                            asp-action="Login">Login</a>
-
                             <a class="btn me-3 bg-light text-dark"
                            asp-area=""
                            asp-controller="Account"
                            asp-action="Register">Register</a>
-
                         }
-
                     </div>
                 </div>
             </div>

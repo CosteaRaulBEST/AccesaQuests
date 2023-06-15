@@ -16,8 +16,8 @@ namespace AccesaQuests.Web.Controllers
         {
             this.tagRepository = tagRepository;
         }
-        [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
+        [HttpGet]       
         public IActionResult Add()
         {
             return View();

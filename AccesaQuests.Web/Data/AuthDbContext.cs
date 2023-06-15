@@ -53,7 +53,7 @@ namespace AccesaQuests.Web.Data
                 var superAdminId = "472ba632-6133-44a1-b158-6c10bd7d850d";
                 var superAdminUser = new IdentityUser
                 {
-                    UserName = "superadmin@accesa.com",
+                    UserName = "superadmin",
                     Email = "superadmin@accesa.com",
                     NormalizedEmail = "superadmin@accesa.com".ToUpper(),
                     NormalizedUserName = "superadminaccesa.com".ToUpper(),
