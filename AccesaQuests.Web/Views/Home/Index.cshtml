@@ -32,14 +32,21 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-6 d-flex">
-                @if (Model != null && Model.Tags.Any())
-                {
-                    @foreach (var tag in Model.Tags)
+            <div class="col-6">
+                <div class="mb-3">
+                    @if (Model != null && Model.Tags.Any())
                     {
-                        <span class="badge bg-dark text-white me-1">@tag.Name</span>
+                        foreach (var tag in Model.Tags)
+                        {
+                            <span class="badge bg-dark text-white me-1 tag" onclick="filterByTag('@tag.Name')">@tag.Name</span>
+                        }
                     }
-                }
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3 d-flex justify-content-end">
+                    <button id="revertButton" class="btn btn-sm btn-dark revert-button" style="display: none;" onclick="revertFilter()">Revert</button>
+                </div>
             </div>
         </div>
     </div>
@@ -51,7 +58,7 @@
                 {
                     foreach (var post in Model.Posts)
                     {
-                        <div class="mb-5 box-shadow p-5 border">
+                        <div class="mb-5 box-shadow p-5 border post @string.Join(" ", post.Tags.Select(t => t.Name.ToLower()))">
                             <img src="@post.FeaturedImageUrl" alt="@post.PostHeading"
                                  class="mb-2 d-block img-fluid" />
                             <h2 class="mb-2">
@@ -80,5 +87,36 @@
     </div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        function filterByTag(tag) {
+            // Hide all posts
+            var posts = document.getElementsByClassName('post');
+            for (var i = 0; i < posts.length; i++) {
+                posts[i].style.display = 'none';
+            }
+
+            // Show posts containing the clicked tag
+            var filteredPosts = document.getElementsByClassName(tag.toLowerCase());
+            for (var j = 0; j < filteredPosts.length; j++) {
+                filteredPosts[j].style.display = 'block';
+            }
+
+            // Show the revert button
+            var revertButton = document.getElementById('revertButton');
+            revertButton.style.display = 'block';
+        }
+
+        function revertFilter() {
+            // Show all posts
+            var posts = document.getElementsByClassName('post');
+            for (var i = 0; i < posts.length; i++) {
+                posts[i].style.display = 'block';
+            }
+
+            // Hide the revert button
+            var revertButton = document.getElementById('revertButton');
+            revertButton.style.display = 'none';
+        }
+    </script>
 </body>
 </html>

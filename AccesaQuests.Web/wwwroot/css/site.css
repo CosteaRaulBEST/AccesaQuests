@@ -18,9 +18,21 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background: linear-gradient(to bottom, #141e30, #243b55);
+    color: white;
+    padding-bottom: 60px; /* Add padding at the bottom for the footer */
+    min-height: 100vh; /* Set minimum height to 100% of the viewport height */
+    position: relative;
 }
 .post-details-content img{
     max-width:100%
 
+}
+..footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

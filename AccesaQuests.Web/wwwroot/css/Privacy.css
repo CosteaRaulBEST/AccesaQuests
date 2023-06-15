@@ -1,0 +1,30 @@
+﻿/* Global styles */
+body {
+    background: linear-gradient(to bottom, #141e30, #243b55);
+    color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+}
+
+h2 {
+    color: #ffc107;
+}
+
+h3 {
+    color: #17a2b8;
+}
+
+ul {
+    padding-left: 2rem;
+}

@@ -2,3 +2,51 @@
     background: linear-gradient(to bottom, #141e30, #243b55);
     color: white;
 }
+
+.tag-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.tag {
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #343a40;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s, font-size 0.3s;
+}
+
+    .tag:hover {
+        background-color: #212529;
+    }
+
+    .tag.active {
+        font-size: 18px;
+    }
+.revert-button {
+    font-size: 14px;
+    height: auto;
+    line-height: 24px;
+    background-color: #343a40;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, font-size 0.3s;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+}
+
+    .revert-button:hover {
+        background-color: #212529;
+    }
