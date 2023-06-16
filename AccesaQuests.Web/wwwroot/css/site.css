@@ -28,11 +28,3 @@ body {
     max-width:100%
 
 }
-..footer {
-    background-color: #343a40;
-    color: white;
-    padding: 20px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
