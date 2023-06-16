@@ -27,6 +27,10 @@ namespace AccesaQuests.Web.Controllers
         [ActionName("Add")]
         public async Task<IActionResult> Add(AddTagRequest addTagRequest)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(addTagRequest);
+            }
             //Mapping AddTagRequest to Tag domain model
             var tag = new Tag
             {
