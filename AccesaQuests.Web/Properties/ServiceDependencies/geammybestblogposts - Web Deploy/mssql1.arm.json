@@ -57,9 +57,9 @@
             },
             {
               "sku": {
-                "name": "Standard",
-                "tier": "Standard",
-                "capacity": 10
+                "name": "Basic",
+                "tier": "Basic",
+                "capacity": 5
               },
               "kind": "v12.0,user",
               "location": "[parameters('resourceLocation')]",

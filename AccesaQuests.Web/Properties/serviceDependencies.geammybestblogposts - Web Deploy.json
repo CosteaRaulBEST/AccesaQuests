@@ -2,7 +2,7 @@
   "dependencies": {
     "mssql1": {
       "secretStore": "AzureAppSettings",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/accesaquestsdbdbserver/databases/AccesaQuestsAuthDb",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/accesaquestsdbdbserver/databases/AccesaQuestsAuthDb",
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:AccesaQuestsAuthConnectionString"
     },
