@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BlogPost.Migrations
+namespace AccesaQuests.Web.Migrations.AccesaQuestsDb
 {
     [DbContext(typeof(AccesaQuestsDbContext))]
     partial class AccesaQuestsDbContextModelSnapshot : ModelSnapshot

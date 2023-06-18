@@ -166,15 +166,15 @@ namespace AccesaQuests.Web.Migrations
                         {
                             Id = "472ba632-6133-44a1-b158-6c10bd7d850d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9df08927-dbc3-49c3-bc7c-c2dbce444561",
+                            ConcurrencyStamp = "c31ba119-4195-4289-bb56-fd4ed65aa2d4",
                             Email = "superadmin@accesa.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@ACCESA.COM",
                             NormalizedUserName = "SUPERADMINACCESA.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELO+GXoFq+YcM0L/M1A2fgAzobHidYA24x/9HzP31Mw9Yve4oXJjda/hlpeqtOjHJA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJSdHT69b20iFesvbLtn6oiq/6Udv1qzXIML2SPWXottLl+wvhNQoStwujzvjiyBlQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a97259fb-d836-46e9-aad0-b54465821459",
+                            SecurityStamp = "dffccedb-885e-4bc5-bde3-f706f72c06e1",
                             TwoFactorEnabled = false,
                             UserName = "superadmin"
                         });

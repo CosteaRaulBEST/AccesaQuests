@@ -3,6 +3,14 @@
     color: white;
 }
 
+.blog-details-content h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .tag-container {
     display: flex;
     justify-content: center;
@@ -50,3 +58,41 @@
     .revert-button:hover {
         background-color: #212529;
     }
+
+.post {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .post .mb-2 {
+        flex-basis: 100%;
+        font-size: 24px;
+    }
+
+    .post .mb-4 {
+        flex-basis: 100%;
+    }
+
+    .post p {
+        flex-basis: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .post .btn {
+        margin-top: 1rem;
+    }
+    .post img {
+        max-width: 100%;
+        height: auto;
+    }
+
+@media (max-width: 767px) {
+    .col-xxl {
+        max-width: 100%;
+    }
+
+    .col-8 {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}

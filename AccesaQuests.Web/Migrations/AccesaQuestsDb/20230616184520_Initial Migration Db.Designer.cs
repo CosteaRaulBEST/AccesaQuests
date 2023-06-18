@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BlogPost.Migrations
+namespace AccesaQuests.Web.Migrations.AccesaQuestsDb
 {
     [DbContext(typeof(AccesaQuestsDbContext))]
-    [Migration("20230527045436_nuu")]
-    partial class nuu
+    [Migration("20230616184520_Initial Migration Db")]
+    partial class InitialMigrationDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,35 @@ namespace BlogPost.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("AccesaQuests.Web.Models.Domain.BlogPostComment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BlogPostId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("PostId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("BlogPostComment");
+                });
 
             modelBuilder.Entity("AccesaQuests.Web.Models.Domain.BlogPostLike", b =>
                 {
@@ -126,6 +155,13 @@ namespace BlogPost.Migrations
                     b.ToTable("PostTag");
                 });
 
+            modelBuilder.Entity("AccesaQuests.Web.Models.Domain.BlogPostComment", b =>
+                {
+                    b.HasOne("AccesaQuests.Web.Models.Domain.Post", null)
+                        .WithMany("Comments")
+                        .HasForeignKey("PostId");
+                });
+
             modelBuilder.Entity("AccesaQuests.Web.Models.Domain.BlogPostLike", b =>
                 {
                     b.HasOne("AccesaQuests.Web.Models.Domain.Post", null)
@@ -150,6 +186,8 @@ namespace BlogPost.Migrations
 
             modelBuilder.Entity("AccesaQuests.Web.Models.Domain.Post", b =>
                 {
+                    b.Navigation("Comments");
+
                     b.Navigation("Likes");
                 });
 #pragma warning restore 612, 618

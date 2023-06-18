@@ -1,0 +1,43 @@
+﻿body {
+    background: linear-gradient(to bottom, #141e30, #243b55);
+    color: white;
+    font-size: 16px;
+}
+
+.container.my-5 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+    .container.my-5 .row.justify-content-center {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+        .container.my-5 .row.justify-content-center .col-12.col-lg-6 {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+.card-header h5 {
+    font-size: 18px;
+}
+
+.card-body .card.mb-3 .card-body {
+    padding: 15px;
+}
+
+    .card-body .card.mb-3 .card-body .d-flex.justify-content-between {
+        flex-wrap: wrap;
+    }
+
+@media (max-width: 767px) {
+    .col-xxl {
+        max-width: 100%;
+    }
+
+    .col-8 {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}

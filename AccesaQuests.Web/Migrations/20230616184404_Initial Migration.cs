@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AccesaQuests.Web.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialauthMigration : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -171,7 +171,7 @@ namespace AccesaQuests.Web.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "472ba632-6133-44a1-b158-6c10bd7d850d", 0, "bdd5efd5-325a-4d09-89d5-9ecba63a8038", "superadmin@accesa.com", false, false, null, "SUPERADMIN@ACCESA.COM", "SUPERADMINACCESA.COM", "AQAAAAIAAYagAAAAEPmLimW7N9jteHPAR4+90Ih1kBVgSkF5ttRc9p7R7iOfu4+OzO06QrUHSOg6Tc55Eg==", null, false, "8e6304e2-277e-4f5d-ae74-ef352a56c2f0", false, "superadmin" });
+                values: new object[] { "472ba632-6133-44a1-b158-6c10bd7d850d", 0, "c31ba119-4195-4289-bb56-fd4ed65aa2d4", "superadmin@accesa.com", false, false, null, "SUPERADMIN@ACCESA.COM", "SUPERADMINACCESA.COM", "AQAAAAIAAYagAAAAEJSdHT69b20iFesvbLtn6oiq/6Udv1qzXIML2SPWXottLl+wvhNQoStwujzvjiyBlQ==", null, false, "dffccedb-885e-4bc5-bde3-f706f72c06e1", false, "superadmin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
