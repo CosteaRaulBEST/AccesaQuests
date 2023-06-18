@@ -17,12 +17,14 @@ This project demonstrates the practical application of ASP.NET MVC framework for
 
 This project serves as a valuable learning experience, allowing developers to gain hands-on experience with ASP.NET MVC, database integration, user management, front-end development, and deployment aspects. It provides a foundation for further exploration of web application development and building more complex projects in the future.
 
+## Disclaimer:
++ Keep in mind I work in this project a lot and the features changes a lot and verry often
+### Project Photos:
 <img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/896e07fd-3b5e-4e85-8d26-503e22200804" width="2000">
-
 
 <img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/7d41a3d3-c0c6-4c3e-bdb5-e21b32091cf8" width="2000">
 
-<img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/5a2d055f-c979-4749-88d4-61c15f02b3d4>" width="2000">
+<img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/ac6219c9-ba4b-494e-9096-ebf52a35e43c>" width="2000">
 
 <img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/b3df63ee-1d24-430f-bcba-0d4127a3ee2f" width="2000">
 
