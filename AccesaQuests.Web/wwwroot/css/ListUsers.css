@@ -149,6 +149,10 @@ thead th {
 tbody td {
     color: #fff;
 }
+.pagination {
+    background-color: #343a40;
+}
+
 
 /* Body styles */
 body {
