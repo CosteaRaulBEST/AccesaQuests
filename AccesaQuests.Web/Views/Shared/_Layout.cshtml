@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AccesaQuests.Web.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="~/js/site.js"></script>
 
     <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
@@ -24,86 +25,45 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-house-door"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Contact"><i class="bi bi-envelope"></i> Contact</a>
                         </li>
                         @if (User.IsInRole("Admin"))
                         {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Manage
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminTags"
-                                       asp-action="Add">
-                                            Add Tag
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminTags"
-                                       asp-action="List">
-                                            Show All Tags
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminPosts"
-                                       asp-action="Add">
-                                            Add Blog Post
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminPosts"
-                                       asp-action="List">
-                                            Show All Blog Posts
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminUsers"
-                                       asp-action="List">
-                                            Show All Users
-                                        </a>
-                                    </li>
-                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="AdminTags" asp-action="Add"><i class="bi bi-tags"></i> Add Tag</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="AdminTags" asp-action="List"><i class="bi bi-tags"></i> Show All Tags</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="AdminPosts" asp-action="Add"><i class="bi bi-pencil-square"></i> Add Blog Post</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="AdminPosts" asp-action="List"><i class="bi bi-journals"></i> Show All Blog Posts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="AdminUsers" asp-action="List"><i class="bi bi-people"></i> Show All Users</a>
                             </li>
                         }
                     </ul>
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center mt-3 mt-sm-0">
                         @if (signInManager.IsSignedIn(User))
                         {
                             <div class="me-3 text-light">
-                                @User.Identity.Name
+                                <i class="bi bi-person"></i> @User.Identity.Name
                             </div>
-                            <a class="btn me-3 bg-light text-dark"
-                           asp-area=""
-                           asp-controller="Account"
-                           asp-action="Logout">Logout</a>
+                            <a class="btn me-3 bg-light text-dark" asp-area="" asp-controller="Account" asp-action="Logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
                         }
                         else
                         {
-                            <a class="btn me-3 bg-light text-dark"
-                           asp-area=""
-                           asp-controller="Account"
-                           asp-action="Login">Login</a>
-                            <a class="btn me-3 bg-light text-dark"
-                           asp-area=""
-                           asp-controller="Account"
-                           asp-action="Register">Register</a>
+                            <a class="btn me-3 bg-light text-dark" asp-area="" asp-controller="Account" asp-action="Login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                            <a class="btn me-3 bg-light text-dark" asp-area="" asp-controller="Account" asp-action="Register"><i class="bi bi-person-plus"></i> Register</a>
                         }
                     </div>
                 </div>
