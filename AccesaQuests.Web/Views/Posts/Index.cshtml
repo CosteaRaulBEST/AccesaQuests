@@ -23,11 +23,17 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-6">
 
-                <h1 class="mb-3">@Model.PostHeading</h1>
+                <h1 class="mb-3">
+                    <i class="bi bi-file-text"></i> @Model.PostHeading
+                </h1>
 
                 <div class="d-flex justify-content-between mb-3">
-                    <span class="text-secondary">@Model.Author</span>
-                    <span class="text-secondary">@Model.PublishedDate.ToShortDateString()</span>
+                    <span class="text-secondary">
+                        <i class="bi bi-person-fill"></i> @Model.Author
+                    </span>
+                    <span class="text-secondary">
+                        <i class="bi bi-calendar3"></i> @Model.PublishedDate.ToShortDateString()
+                    </span>
                 </div>
 
                 <div class="mb-3">
