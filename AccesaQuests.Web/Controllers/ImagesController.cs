@@ -11,19 +11,19 @@ namespace AccesaQuests.Web.Controllers
     {
         private readonly IImageRepository imageRepository;
 
-        public ImagesController(IImageRepository imageRepository)
+        public ImagesController(IImageRepository imageRepository )
         {
             this.imageRepository = imageRepository;
         }
+        [HttpPost]
         public async Task<IActionResult> UploadAsync(IFormFile file)
         {
-          
-            var imageUrl = await imageRepository.UploadAsync(file);
-            if(imageUrl == null)
+            var imageURL = await imageRepository.UploadAsync(file);
+            if(imageURL == null ) 
             {
                 return Problem("Somethink went wrong!", null, (int)HttpStatusCode.InternalServerError);
             }
-            return new JsonResult(new { link = imageUrl });
+            return new JsonResult(new { link = imageURL });
         }
     }
 }
