@@ -15,7 +15,7 @@ namespace AccesaQuests.Web.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IPostRepository _postRepository;
         private readonly ITagRepository _tagRepository;
-        private const int PageSize = 5; // Number of posts per page
+        private const int PageSize = 16; // Number of posts per page
 
         public HomeController(ILogger<HomeController> logger, IPostRepository postRepository, ITagRepository tagRepository)
         {

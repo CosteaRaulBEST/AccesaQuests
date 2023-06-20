@@ -13,43 +13,43 @@
     <form method="post">
         <div class="mb-3">
             <label class="form-label">Heading</label>
-            <input type="text" class="form-control" id="heading" asp-for="PostHeading"/>
+            <input type="text" class="form-control" id="heading" asp-for="PostHeading" required/>
         </div>
         <div class="mb-3">
             <label class="form-label">Post Title</label>
-            <input type="text" class="form-control" id="postTitle" asp-for="PostTitle" />
+            <input type="text" class="form-control" id="postTitle" asp-for="PostTitle" required />
         </div>
         <div class="mb-3">
             <label class="form-label">Content</label>
-            <textarea class="form-control" id="content" asp-for="Content">Content</textarea>
+            <textarea class="form-control" id="content" asp-for="Content" required>Content</textarea>
         </div>
         <div class="mb-3">
             <label class="form-label">Short Description</label>
-            <input type="text" class="form-control" id="shortDescription" asp-for="ShortDescription" />
+            <input type="text" class="form-control" id="shortDescription" asp-for="ShortDescription" required />
         </div>
         <div class="mb-3">
             <label class="form-label">Featured Image Upload</label>
             <input type="file" id="featuredImageUpload" class="form-control"/>
-            <img src="" id="featuredImageDisplay" style="display:none;width:300px;"/>
+            <img src="" id="featuredImageDisplay" required style="display:none;width:300px;" />
         </div>
         <div class="mb-3">
             <label class="form-label">Featured Image URL</label>
-            <input type="text" class="form-control" id="featuredImageUrl" asp-for="FeaturedImageUrl" />
+            <input type="text" class="form-control" id="featuredImageUrl" asp-for="FeaturedImageUrl" required />
         </div>
         <div class="mb-3">
             <label class="form-label">URL Handle</label>
-            <input type="text" class="form-control" id="urlHandle" asp-for="UrlHandle" />
+            <input type="text" class="form-control" id="urlHandle" asp-for="UrlHandle" required />
         </div>
         <div class="mb-3">
             <label class="form-label">Published Date</label>
-            <input type="date" class="form-control" id="publishedDate" asp-for="PublishedDate" />
+            <input type="date" class="form-control" id="publishedDate" asp-for="PublishedDate" required />
         </div>
         <div class="mb-3">
             <label class="form-label">Author</label>
-            <input type="textx1" class="form-control" id="author" asp-for="Author" />
+            <input type="textx1" class="form-control" id="author" asp-for="Author" required />
         </div>
         <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="visible" asp-for="Visible"/>
+            <input class="form-check-input" type="checkbox" id="visible" asp-for="Visible" required />
             <label class="form-check-label">
                 Is Visible ?
             </label>
