@@ -20,14 +20,15 @@ This project serves as a valuable learning experience, allowing developers to ga
 ## Disclaimer:
 + Keep in mind I work in this project a lot and the features changes a lot and verry often
 ### Project Photos:
-<img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/896e07fd-3b5e-4e85-8d26-503e22200804" width="2000">
+
+<img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/408cbe93-8761-40f2-8353-21266f43367c" width="2000">
 
 <img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/7d41a3d3-c0c6-4c3e-bdb5-e21b32091cf8" width="2000">
 
 <img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/ac6219c9-ba4b-494e-9096-ebf52a35e43c>" width="2000">
 
-<img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/b3df63ee-1d24-430f-bcba-0d4127a3ee2f" width="2000">
+<img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/be64db04-72bf-4f74-8533-618c6ae2f730" width="2000">
 
-<img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/a2cc9901-b04b-42c1-8285-09546dad098e" width="500">
+<img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/603000cd-73d1-4410-b4bc-a69202caf29b" width="2002">
 
-<img src="https://github.com/CosteaRaulBEST/BlogPost/assets/91869309/9d3fb77d-9ec4-4b46-9288-9cb8e49f3ca0" width="2000">
+
